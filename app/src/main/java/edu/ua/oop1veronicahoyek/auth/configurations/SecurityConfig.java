@@ -19,8 +19,9 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
-    //Since we Enabled Web Security, security will look for a bean called SecurityFilterChain
-    //This chain is responsible for configuring all security of our application
+    // Since we Enabled Web Security, security will look for a bean called SecurityFilterChain
+    // This chain is responsible for configuring all security of our application
+    // HttpSecurity is the http security information of the made request
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable() // disable csrf

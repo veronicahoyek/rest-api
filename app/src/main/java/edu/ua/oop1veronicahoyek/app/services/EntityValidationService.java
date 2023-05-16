@@ -19,7 +19,7 @@ public abstract class EntityValidationService<T> {
             StringBuilder sBuilder = new StringBuilder();
             for (ConstraintViolation<T> bookConstraintViolation: violations) {
                 sBuilder.append(bookConstraintViolation.getMessage()).append("\n");
-            }
+            } //getClass().getSimpleName() to get the name of the class of the entity
             throw new EntityValidationException(entity.getClass().getSimpleName() + " information error occurred:\n" + sBuilder);
         }
     }

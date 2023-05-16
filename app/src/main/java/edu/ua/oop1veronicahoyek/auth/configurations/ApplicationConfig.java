@@ -20,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class ApplicationConfig {
     private final UserRepository userRepo;
 
+    // Overriding to get user by username
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserDetailsService() {
@@ -44,6 +45,7 @@ public class ApplicationConfig {
         return config.getAuthenticationManager(); //this function is provided by springboot
     }
 
+    // To encode the password in the database
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

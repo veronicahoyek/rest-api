@@ -1,15 +1,21 @@
+# Stage 1: Build stage using Maven
 FROM maven:3.9.0-amazoncorretto-17 as builder
 
+# Set the working directory inside the container
 WORKDIR /app
 
+# Copy the source code and pom.xml to the container
 COPY src ./src
 COPY pom.xml ./pom.xml
 
+# Build the application using Maven
 RUN mvn clean install -DskipTests
 
+# Stage 2: Run stage using Amazon Corretto as the base image
 FROM amazoncorretto:17
+
+# Copy the built JAR file from the builder stage to the current location in the container
 COPY --from=builder "/app/target/oop1-veronica-hoyek-0.0.1-SNAPSHOT.jar" app.jar
 
+# Set the entrypoint to run the JAR file
 ENTRYPOINT ["java", "-jar", "/app.jar"]
-
-

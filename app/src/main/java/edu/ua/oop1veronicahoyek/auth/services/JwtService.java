@@ -27,6 +27,7 @@ The payload contains the claims, usually contain information about the user
 The signature which is used to verify the origin of the jwt. It ensures that the token was not sent by another party.
  */
 public class JwtService {
+    // this annotation is used to inject value to externalize configuration properties and inject them into the application at runtime
     @Value("${application.security.jwt.secret-key}")
     private String SECRET_KEY;
     @Value("${application.security.jwt.expiration}")
@@ -39,6 +40,7 @@ public class JwtService {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
+    // to construct the information from the payload
     private Claims extractAllClaims(String token) {
         return Jwts
                 .parserBuilder()
@@ -71,6 +73,7 @@ public class JwtService {
                 .compact();
     }
 
+    // to generate the token without extraClaims
     public String generateToken(UserDetails userDetails) {
         return generateToken(new HashMap<>(), userDetails);
     }

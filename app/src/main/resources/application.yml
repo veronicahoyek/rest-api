@@ -1,13 +1,15 @@
+# Configuration for the server
 server:
   port: 8080
 
+# Configuration for MongoDB connection
 spring:
   data:
     mongodb:
       database: bookstore
       uri: mongodb+srv://dbuser:dbpass@springboot-api.ycr6n9e.mongodb.net/?retryWrites=true&w=majority
 
-
+# Configuration for application security using JWT
 application:
   security:
     jwt:

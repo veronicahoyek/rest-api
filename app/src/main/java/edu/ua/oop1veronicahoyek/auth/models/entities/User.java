@@ -15,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+
+//UserDetails: class used by java authentication
 @Data
 @Builder
 @NoArgsConstructor
