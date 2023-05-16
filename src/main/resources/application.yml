@@ -1,0 +1,17 @@
+server:
+  port: 8080
+
+spring:
+  data:
+    mongodb:
+      database: bookstore
+      uri: mongodb+srv://dbuser:dbpass@springboot-api.ycr6n9e.mongodb.net/?retryWrites=true&w=majority
+
+
+application:
+  security:
+    jwt:
+      # Security key generated from https://www.allkeysgenerator.com/Random/Security-Encryption-Key-Generator.aspx
+      # The settings chosen in the website are: 256-bit with Hex format
+      secret-key: 6A576E5A7234753777217A25432A462D4A614E645267556B5870327335763879
+      expiration: 86400000 # a day (24 * 60 * 60 * 1000)
